@@ -16,6 +16,8 @@
 		EB15B2A72B4811FB0096B201 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2A62B4811FB0096B201 /* ContentViewModel.swift */; };
 		EB15B2A92B4812410096B201 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2A82B4812410096B201 /* AddView.swift */; };
 		EB15B2AB2B48124A0096B201 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AA2B48124A0096B201 /* SettingsView.swift */; };
+		EB15B2AD2B48AD980096B201 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AC2B48AD980096B201 /* CardView.swift */; };
+		EB15B2AF2B48B1C70096B201 /* TagColourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		EB15B2A62B4811FB0096B201 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		EB15B2A82B4812410096B201 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		EB15B2AA2B48124A0096B201 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EB15B2AC2B48AD980096B201 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagColourModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				EB15B2932B480FB30096B201 /* ContentView.swift */,
 				EB15B2A82B4812410096B201 /* AddView.swift */,
 				EB15B2AA2B48124A0096B201 /* SettingsView.swift */,
+				EB15B2AC2B48AD980096B201 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			children = (
 				EB15B2A22B4811CF0096B201 /* TaskModel.swift */,
 				EB15B2A42B4811E40096B201 /* TagModel.swift */,
+				EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,9 +185,11 @@
 				EB15B2AB2B48124A0096B201 /* SettingsView.swift in Sources */,
 				EB15B2A32B4811CF0096B201 /* TaskModel.swift in Sources */,
 				EB15B2942B480FB30096B201 /* ContentView.swift in Sources */,
+				EB15B2AF2B48B1C70096B201 /* TagColourModel.swift in Sources */,
 				EB15B2A92B4812410096B201 /* AddView.swift in Sources */,
 				EB15B2A52B4811E40096B201 /* TagModel.swift in Sources */,
 				EB15B2922B480FB30096B201 /* hyacinthApp.swift in Sources */,
+				EB15B2AD2B48AD980096B201 /* CardView.swift in Sources */,
 				EB15B2A72B4811FB0096B201 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

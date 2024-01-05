@@ -46,8 +46,11 @@ internal struct TaskModel: Identifiable {
 
 // Mock Data
 extension TaskModel {
+    static let sampleTask: TaskModel = TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson))
+    
     static let sampleData: [TaskModel] = [
         TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson)),
+        TaskModel(title: "Complete Test", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson)),
         TaskModel(title: "Grocery Shopping", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, isCompleted: false, tag: TagModel(title: "Personal", colour: TagColour.perwinkle)),
         TaskModel(title: "Team Meeting", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.forest))
     ]
