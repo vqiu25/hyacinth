@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskModel: Identifiable {
+internal struct TaskModel: Identifiable {
     let id: UUID
     private var title: String
     private var date: Date
@@ -42,4 +42,13 @@ struct TaskModel: Identifiable {
         get { self.tag }
         set { self.tag = newValue }
     }
+}
+
+// Mock Data
+extension TaskModel {
+    static let sampleData: [TaskModel] = [
+        TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson)),
+        TaskModel(title: "Grocery Shopping", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, isCompleted: false, tag: TagModel(title: "Personal", colour: TagColour.perwinkle)),
+        TaskModel(title: "Team Meeting", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.forest))
+    ]
 }
