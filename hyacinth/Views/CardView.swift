@@ -21,8 +21,8 @@ internal struct CardView: View {
                 Text(task.taskTag.tagTitle)
                     .font(.footnote)
                     .fontWeight(.semibold)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
+                    .padding(.vertical, 3)
+                    .padding(.horizontal, 7)
                     .foregroundColor(.white)
                     .background(Color(task.taskTag.tagColour.colorValue))
                     .cornerRadius(100)
@@ -40,8 +40,8 @@ internal struct CardView: View {
                     .foregroundColor(Color.lavendar)
             }
         }
-        .padding(.all, 10)
-        .background(Color.card)
+//        .padding(.all, 10)
+//        .background(Color.card)
         // Context Menu
         .contextMenu {
             Button(action: {

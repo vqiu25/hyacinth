@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DayView: View {
     var date: Date
-    var tasks: [TaskModel]
     
     var body: some View {
         VStack {
@@ -19,19 +18,10 @@ struct DayView: View {
                 Spacer()
                 Text(date, formatter: dateFormatter)
             }
-            .padding([.leading, .trailing, .top])
+            .padding(.top, 10)
             .fontWeight(.bold)
             .font(.title2)
-            
-            // Tasks
-            ForEach(tasks.filter { isTaskScheduledForDate($0, date: date) }) { task in
-                CardView(task: task)
-                    .cornerRadius(10)
-                    .padding([.leading, .trailing])
-            }
         }
-        .padding(.bottom)
-        
     }
     
     // Day Formatter
@@ -57,6 +47,6 @@ struct DayView: View {
 }
 
 #Preview {
-    DayView(date: Date(), tasks: TaskModel.sampleData)
+    DayView(date: Date())
         .background(Color.background)
 }

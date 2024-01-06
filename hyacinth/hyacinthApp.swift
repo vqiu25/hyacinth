@@ -11,7 +11,7 @@ import SwiftUI
 struct hyacinthApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(tasks: TaskModel.sampleData)
         }
     }
 }
