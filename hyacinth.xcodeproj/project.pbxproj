@@ -18,6 +18,8 @@
 		EB15B2AB2B48124A0096B201 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AA2B48124A0096B201 /* SettingsView.swift */; };
 		EB15B2AD2B48AD980096B201 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AC2B48AD980096B201 /* CardView.swift */; };
 		EB15B2AF2B48B1C70096B201 /* TagColourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */; };
+		EB74B9E32B48B659007E1EF0 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B9E22B48B659007E1EF0 /* TagView.swift */; };
+		EB74B9E52B48BB51007E1EF0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B9E42B48BB51007E1EF0 /* DayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		EB15B2AA2B48124A0096B201 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB15B2AC2B48AD980096B201 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagColourModel.swift; sourceTree = "<group>"; };
+		EB74B9E22B48B659007E1EF0 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		EB74B9E42B48BB51007E1EF0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +92,10 @@
 			children = (
 				EB15B2932B480FB30096B201 /* ContentView.swift */,
 				EB15B2A82B4812410096B201 /* AddView.swift */,
+				EB74B9E42B48BB51007E1EF0 /* DayView.swift */,
 				EB15B2AA2B48124A0096B201 /* SettingsView.swift */,
 				EB15B2AC2B48AD980096B201 /* CardView.swift */,
+				EB74B9E22B48B659007E1EF0 /* TagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB15B2AB2B48124A0096B201 /* SettingsView.swift in Sources */,
+				EB74B9E52B48BB51007E1EF0 /* DayView.swift in Sources */,
+				EB74B9E32B48B659007E1EF0 /* TagView.swift in Sources */,
 				EB15B2A32B4811CF0096B201 /* TaskModel.swift in Sources */,
 				EB15B2942B480FB30096B201 /* ContentView.swift in Sources */,
 				EB15B2AF2B48B1C70096B201 /* TagColourModel.swift in Sources */,
