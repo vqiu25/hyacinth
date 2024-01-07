@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State var tasks: [TaskModel] // Assuming you have task data
     @State var currentDate: Date = Date()
+    @State private var draggedTask: TaskModel?
+    
     @ScaledMetric var customBubbleSize: CGFloat = 55
     @ScaledMetric var customButtonSize: CGFloat = 30
     
@@ -20,7 +22,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) { // Combine the top bar and the ScrollView into a single VStack
-                
                 // Top Bar
                 HStack {
                     // Menu or Icon button on the left
@@ -92,12 +93,30 @@ struct ContentView: View {
                         
                         ForEach(tasks.filter { isTaskScheduledForDate($0, date: date) }) { task in
                             CardView(task: task)
-                                .cornerRadius(10)
                                 .padding([.leading, .trailing, .bottom], 5)
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        print("Reschedule")
+                                    } label: {
+                                        Label("Reschedule", systemImage: "pencil")
+                                    }
+                                }
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        print("Deleting")
+                                    } label: {
+                                        Label("Delete", systemImage: "trash.fill")
+                                    }
+                                }
+                            // Drag functionality
+                                .onDrag {
+                                    self.draggedTask = task
+                                    return NSItemProvider()
+                                }
                         }
                         .listRowBackground(
                             RoundedRectangle(cornerRadius: 10)
-                                .background(.clear)
+                                .background(Color.clear)
                                 .foregroundColor(Color.card)
                                 .padding(
                                     EdgeInsets(
@@ -110,10 +129,12 @@ struct ContentView: View {
                         )
                         
                         
+                        
                     }
                     .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
+                
                 
             }
             .background(Color.background)
