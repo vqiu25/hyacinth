@@ -40,8 +40,8 @@ internal struct CardView: View {
                     .foregroundColor(Color.lavendar)
             }
         }
-//        .padding(.all, 10)
-//        .background(Color.card)
+        .padding(.all, 10)
+        .background(Color.card)
         // Context Menu
 //        .contextMenu {
 //            Button(action: {
