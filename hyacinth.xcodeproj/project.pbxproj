@@ -20,6 +20,7 @@
 		EB15B2AF2B48B1C70096B201 /* TagColourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B2AE2B48B1C70096B201 /* TagColourModel.swift */; };
 		EB74B9E32B48B659007E1EF0 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B9E22B48B659007E1EF0 /* TagView.swift */; };
 		EB74B9E52B48BB51007E1EF0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B9E42B48BB51007E1EF0 /* DayView.swift */; };
+		EB8F249E2B4AAA5E00DA3EEC /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = EB8F249D2B4AAA5E00DA3EEC /* SwipeActions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8F249E2B4AAA5E00DA3EEC /* SwipeActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +136,9 @@
 			dependencies = (
 			);
 			name = hyacinth;
+			packageProductDependencies = (
+				EB8F249D2B4AAA5E00DA3EEC /* SwipeActions */,
+			);
 			productName = hyacinth;
 			productReference = EB15B28E2B480FB30096B201 /* hyacinth.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +167,9 @@
 				Base,
 			);
 			mainGroup = EB15B2852B480FB30096B201;
+			packageReferences = (
+				EB8F249C2B4AAA5E00DA3EEC /* XCRemoteSwiftPackageReference "SwipeActions" */,
+			);
 			productRefGroup = EB15B28F2B480FB30096B201 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -402,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB8F249C2B4AAA5E00DA3EEC /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/SwipeActions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB8F249D2B4AAA5E00DA3EEC /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB8F249C2B4AAA5E00DA3EEC /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB15B2862B480FB30096B201 /* Project object */;
 }

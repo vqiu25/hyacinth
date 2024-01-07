@@ -8,6 +8,7 @@
 
 
 import SwiftUI
+import SwipeActions
 
 struct ContentView: View {
     @State var tasks: [TaskModel] // Assuming you have task data
@@ -89,9 +90,12 @@ struct ContentView: View {
 
                 // ScrollView for the content
                 ScrollView {
-                    VStack(spacing: 0) {
-                        ForEach(weekDates, id: \.self) { date in
-                            DayView(date: date, tasks: tasksForDate(date))
+                    LazyVStack(spacing: 0) {
+                        SwipeViewGroup {
+                            ForEach(weekDates, id: \.self) { date in
+                                DayView(date: date, tasks: tasksForDate(date))
+                                
+                            }
                         }
                     }
                 }

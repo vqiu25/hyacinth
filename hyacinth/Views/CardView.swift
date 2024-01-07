@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 internal struct CardView: View {
     @State var task: TaskModel
@@ -42,22 +43,9 @@ internal struct CardView: View {
         }
         .padding(.all, 10)
         .background(Color.card)
-        // Context Menu
-//        .contextMenu {
-//            Button(action: {
-//                // Edit Action
-//            }) {
-//                Text("Edit")
-//                Image(systemName: "pencil")
-//            }
-//            Button(action: {
-//                // Remove Action
-//            }) {
-//                Text("Remove")
-//                Image(systemName: "trash")
-//            }
-//        }
+        
     }
+    
 }
 
 #Preview {

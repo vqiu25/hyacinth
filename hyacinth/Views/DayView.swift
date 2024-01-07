@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct DayView: View {
     var date: Date
@@ -25,9 +26,17 @@ struct DayView: View {
 
             // Tasks
             ForEach(tasks.filter { isTaskScheduledForDate($0, date: date) }) { task in
-                CardView(task: task)
-                    .cornerRadius(10)
-                    .padding([.leading, .trailing])
+                
+                SwipeView {
+                    CardView(task: task)
+                        .cornerRadius(10)
+                        .padding([.leading, .trailing])
+                } trailingActions: { _ in
+                    SwipeAction("World") {
+                        print("Tapped!")
+                    }
+                    
+                }
             }
         }
         .padding(.bottom)
