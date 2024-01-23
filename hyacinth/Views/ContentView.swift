@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var tasks: [TaskModel] // Assuming you have task data
     @State var currentDate: Date = Date()
     @State private var draggedTask: TaskModel?
+    @State private var showingSheet = false
     @ScaledMetric var customBubbleSize: CGFloat = 55
     @ScaledMetric var customButtonSize: CGFloat = 30
     
@@ -104,7 +105,9 @@ struct ContentView: View {
             
             VStack {
                 Spacer()
-                Button(action: {}) {
+                Button(action: {
+                    self.showingSheet = true
+                }) {
                     ZStack {
                         Circle()
                             .frame(width: customBubbleSize, height: customBubbleSize)
@@ -118,6 +121,9 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
+                .sheet(isPresented: $showingSheet) {
+                    AddView(date: Date(), task: .constant(TaskModel.sampleTask), tasks: .constant(TaskModel.sampleData))
+                }
             }
         }
         
@@ -147,10 +153,7 @@ struct ContentView: View {
             formatter.dateFormat = "MMM Y" // Month format
             return formatter
         }
-    
-    
 }
-
 
 
 struct ContentView_Previews: PreviewProvider {

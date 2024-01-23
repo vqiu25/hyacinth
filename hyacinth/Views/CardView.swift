@@ -19,6 +19,7 @@ internal struct CardView: View {
                 Text(task.taskTitle)
                     .font(.body)
                     .fontWeight(.semibold)
+
                 Text(task.taskTag.tagTitle)
                     .font(.footnote)
                     .fontWeight(.semibold)

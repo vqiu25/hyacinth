@@ -31,12 +31,14 @@ struct DayView: View {
                     CardView(task: task)
                         .cornerRadius(10)
                         .padding([.leading, .trailing])
+                        
                 } trailingActions: { _ in
                     SwipeAction("World") {
                         print("Tapped!")
                     }
                     
                 }
+                
             }
         }
         .padding(.bottom)

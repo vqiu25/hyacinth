@@ -29,3 +29,13 @@ internal struct TagModel: Identifiable {
         set { self.colour = newValue }
     }
 }
+
+// Mock Data
+extension TagModel {
+    
+    static let sampleTags: [TagModel] = [
+        TagModel(title: "Work", colour: TagColour.crimson),
+        TagModel(title: "Personal", colour: TagColour.perwinkle),
+        TagModel(title: "Work", colour: TagColour.forest)
+    ]
+}
