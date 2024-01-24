@@ -14,7 +14,7 @@ struct EditTaskView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     // Initialisers
-    init(tab: Int = 0, task: Binding<TaskModel>) {
+    internal init(tab: Int = 0, task: Binding<TaskModel>) {
         self._tab = State(initialValue: tab)
         self._task = task
     }
@@ -53,7 +53,7 @@ struct EditTaskView: View {
                 DatePicker("Date", selection: $task.taskDate, displayedComponents: .date)
             }
             .padding(.vertical, -20)
-            .navigationBarTitle("New Item", displayMode: .inline)
+            .navigationBarTitle("Edit Task", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Dismiss") {

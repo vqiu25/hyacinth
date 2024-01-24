@@ -12,13 +12,15 @@ internal struct ContentView: View {
     
     // Variables
     @State private var tasks: [TaskModel]
+    @State private var tags: [TagModel]
     @State private var currentDate: Date = Date()
     @State private var showingSheet = false
     @ScaledMetric private var customBubbleSize: CGFloat = 55
     @ScaledMetric private var customButtonSize: CGFloat = 30
     
     // Initialiser
-    internal init(tasks: [TaskModel], currentDate: Date = Date(), showingSheet: Bool = false) {
+    internal init(tasks: [TaskModel], tags: [TagModel], currentDate: Date = Date(), showingSheet: Bool = false) {
+        self._tags = State(initialValue: tags)
         self._tasks = State(initialValue: tasks)
         self._currentDate = State(initialValue: currentDate)
         self._showingSheet = State(initialValue: showingSheet)
@@ -125,7 +127,7 @@ internal struct ContentView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
                 .sheet(isPresented: $showingSheet) {
-                    AddView(date: Date(), task: .constant(TaskModel.sampleTask))
+                    AddView(tasks: self.$tasks, tags: self.$tags)
                 }
             }
         }
@@ -165,6 +167,6 @@ internal struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(tasks: TaskModel.sampleData)
+        ContentView(tasks: TaskModel.sampleData, tags: TagModel.sampleTags)
     }
 }

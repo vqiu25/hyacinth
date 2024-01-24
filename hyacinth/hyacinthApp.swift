@@ -12,7 +12,7 @@ struct hyacinthApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(tasks: TaskModel.sampleData)
+            ContentView(tasks: TaskModel.sampleData, tags: TagModel.sampleTags)
         }
     }
 }

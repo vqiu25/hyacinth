@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct AddView: View {
-    
-    @State var date: Date
-    @Binding var task: TaskModel
-    @State private var tab = 0
+    // Variables
+    @State private var newTask: TaskModel
+    @State private var tab: Int
+    @Binding private var tasks: [TaskModel]
+    @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) var presentationMode
     
+    // Initialiser
+    internal init(newTask: TaskModel = TaskModel(title: "", date: Date(), isCompleted: false, tag: TagModel(title: "Reminder", colour: TagColourModel.lavendar)),
+                  tab: Int = 0,
+                  tasks: Binding<[TaskModel]>,
+                  tags: Binding<[TagModel]>) {
+        self._newTask = State(initialValue: newTask)
+        self._tab = State(initialValue: tab)
+        self._tasks = tasks
+        self._tags = tags
+    }
+    
+    // Body
     var body: some View {
         NavigationView {
             Form {
                 HStack {
-                    TextField("Title", text: $task.taskTitle)
+                    TextField("Title", text: $newTask.taskTitle)
                     
                     Spacer()
                     
@@ -33,17 +46,18 @@ struct AddView: View {
                 HStack {
                     Text("Tag")
                     Spacer()
-                    Text(task.taskTag.tagTitle)
+                    Text(newTask.taskTag.tagTitle)
                         .padding(.vertical, 3)
                         .padding(.horizontal, 7)
-                        .background(task.taskTag.tagColour.colorValue)
+                        .background(newTask.taskTag.tagColour.colorValue)
                         .cornerRadius(100)
                     
                 }
                 
                 // Date Picker
-                DatePicker("Date", selection: $task.taskDate, displayedComponents: .date)
+                DatePicker("Date", selection: $newTask.taskDate, displayedComponents: .date)
             }
+            
             .padding(.vertical, -20)
             .navigationBarTitle("New Item", displayMode: .inline)
             .toolbar {
@@ -55,7 +69,6 @@ struct AddView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        // Add your edit action here
                     }
                     .tint(.lavendar)
                 }
@@ -64,6 +77,7 @@ struct AddView: View {
     }
 }
 
+// Preview
 #Preview {
-    AddView(date: Date(), task: .constant(TaskModel.sampleTask))
+    AddView(tasks: .constant(TaskModel.sampleData), tags: .constant(TagModel.sampleTags))
 }
