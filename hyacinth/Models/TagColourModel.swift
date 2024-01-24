@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-internal enum TagColour {
+internal enum TagColourModel {
     case crimson
     case forest
+    case honey
     case lavendar
     case perwinkle
     case custom(Color)
@@ -20,6 +21,8 @@ internal enum TagColour {
             return Color.crimson
         case .forest:
             return Color.forest
+        case .honey:
+            return Color.honey
         case .lavendar:
             return Color.lavendar
         case .perwinkle:

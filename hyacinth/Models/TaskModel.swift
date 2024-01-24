@@ -8,12 +8,14 @@
 import SwiftUI
 
 internal struct TaskModel: Identifiable {
+    // Variables
     let id: UUID
     private var title: String
     private var date: Date
     private var isCompleted: Bool
     private var tag: TagModel
     
+    // Initialiser
     internal init(id: UUID = UUID(), title: String, date: Date, isCompleted: Bool, tag: TagModel) {
         self.id = id
         self.title = title
@@ -46,12 +48,12 @@ internal struct TaskModel: Identifiable {
 
 // Mock Data
 extension TaskModel {
-    static let sampleTask: TaskModel = TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson))
+    static let sampleTask: TaskModel = TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColourModel.crimson))
     
     static let sampleData: [TaskModel] = [
-        TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson)),
-        TaskModel(title: "Complete Test", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.crimson)),
-        TaskModel(title: "Grocery Shopping", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, isCompleted: false, tag: TagModel(title: "Personal", colour: TagColour.perwinkle)),
-        TaskModel(title: "Team Meeting", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, isCompleted: false, tag: TagModel(title: "Work", colour: TagColour.forest))
+        TaskModel(title: "Complete Assignment", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColourModel.crimson)),
+        TaskModel(title: "Complete Test", date: Date(), isCompleted: false, tag: TagModel(title: "Work", colour: TagColourModel.crimson)),
+        TaskModel(title: "Grocery Shopping", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, isCompleted: false, tag: TagModel(title: "Personal", colour: TagColourModel.perwinkle)),
+        TaskModel(title: "Team Meeting", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, isCompleted: false, tag: TagModel(title: "Work", colour: TagColourModel.forest))
     ]
 }

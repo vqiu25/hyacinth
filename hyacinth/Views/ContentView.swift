@@ -1,27 +1,30 @@
 //
 //  ContentView.swift
-//  checklist
+//  hyacinth
 //
 //  Created by Victor Esther Qiu on 3/12/23.
 //
 
-
-
 import SwiftUI
 import SwipeActions
 
-struct ContentView: View {
-    @State var tasks: [TaskModel] // Assuming you have task data
-    @State var currentDate: Date = Date()
-    @State private var draggedTask: TaskModel?
-    @State private var showingSheet = false
-    @ScaledMetric var customBubbleSize: CGFloat = 55
-    @ScaledMetric var customButtonSize: CGFloat = 30
+internal struct ContentView: View {
     
-    private var weekDates: [Date] {
-        calculateWeekDates(from: currentDate)
+    // Variables
+    @State private var tasks: [TaskModel]
+    @State private var currentDate: Date = Date()
+    @State private var showingSheet = false
+    @ScaledMetric private var customBubbleSize: CGFloat = 55
+    @ScaledMetric private var customButtonSize: CGFloat = 30
+    
+    // Initialiser
+    internal init(tasks: [TaskModel], currentDate: Date = Date(), showingSheet: Bool = false) {
+        self._tasks = State(initialValue: tasks)
+        self._currentDate = State(initialValue: currentDate)
+        self._showingSheet = State(initialValue: showingSheet)
     }
 
+    // Body
     var body: some View {
         ZStack {
             VStack(spacing: 0) { // Combine the top bar and the ScrollView into a single VStack
@@ -122,11 +125,15 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
                 .sheet(isPresented: $showingSheet) {
-                    AddView(date: Date(), task: .constant(TaskModel.sampleTask), tasks: .constant(TaskModel.sampleData))
+                    AddView(date: Date(), task: .constant(TaskModel.sampleTask))
                 }
             }
         }
         
+    }
+    
+    private var weekDates: [Date] {
+        calculateWeekDates(from: currentDate)
     }
 
     private func calculateWeekDates(from date: Date) -> [Date] {

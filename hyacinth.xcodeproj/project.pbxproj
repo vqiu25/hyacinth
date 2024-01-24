@@ -22,6 +22,7 @@
 		EB74B9E52B48BB51007E1EF0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B9E42B48BB51007E1EF0 /* DayView.swift */; };
 		EB8F249E2B4AAA5E00DA3EEC /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = EB8F249D2B4AAA5E00DA3EEC /* SwipeActions */; };
 		EBC1C2322B6062DA00EFE3E3 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1C2312B6062D900EFE3E3 /* TagListView.swift */; };
+		EBC1C2342B60B88000EFE3E3 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1C2332B60B88000EFE3E3 /* EditTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		EB74B9E22B48B659007E1EF0 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		EB74B9E42B48BB51007E1EF0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		EBC1C2312B6062D900EFE3E3 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		EBC1C2332B60B88000EFE3E3 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				EB15B2AC2B48AD980096B201 /* CardView.swift */,
 				EB74B9E22B48B659007E1EF0 /* TagView.swift */,
 				EBC1C2312B6062D900EFE3E3 /* TagListView.swift */,
+				EBC1C2332B60B88000EFE3E3 /* EditTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB15B2AB2B48124A0096B201 /* SettingsView.swift in Sources */,
+				EBC1C2342B60B88000EFE3E3 /* EditTaskView.swift in Sources */,
 				EB74B9E52B48BB51007E1EF0 /* DayView.swift in Sources */,
 				EB74B9E32B48B659007E1EF0 /* TagView.swift in Sources */,
 				EB15B2A32B4811CF0096B201 /* TaskModel.swift in Sources */,

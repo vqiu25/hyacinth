@@ -10,9 +10,9 @@ import SwiftUI
 internal struct TagModel: Identifiable {
     let id: UUID
     private var title: String
-    private var colour: TagColour
+    private var colour: TagColourModel
     
-    internal init(id: UUID = UUID(), title: String, colour: TagColour) {
+    internal init(id: UUID = UUID(), title: String, colour: TagColourModel) {
         self.id = id
         self.title = title
         self.colour = colour
@@ -24,7 +24,7 @@ internal struct TagModel: Identifiable {
         set { self.title = newValue }
     }
     
-    internal var tagColour: TagColour {
+    internal var tagColour: TagColourModel {
         get { self.colour }
         set { self.colour = newValue }
     }
@@ -34,8 +34,8 @@ internal struct TagModel: Identifiable {
 extension TagModel {
     
     static let sampleTags: [TagModel] = [
-        TagModel(title: "Work", colour: TagColour.crimson),
-        TagModel(title: "Personal", colour: TagColour.perwinkle),
-        TagModel(title: "Work", colour: TagColour.forest)
+        TagModel(title: "Work", colour: TagColourModel.crimson),
+        TagModel(title: "Personal", colour: TagColourModel.perwinkle),
+        TagModel(title: "Work", colour: TagColourModel.forest)
     ]
 }

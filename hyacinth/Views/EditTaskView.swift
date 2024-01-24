@@ -1,5 +1,5 @@
 //
-//  AddView.swift
+//  EditTaskView.swift
 //  hyacinth
 //
 //  Created by Victor Esther Qiu on 5/01/24.
@@ -7,16 +7,23 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct EditTaskView: View {
+    // Variables
+    @State private var tab: Int
+    @Binding private var task: TaskModel
+    @Environment(\.presentationMode) private var presentationMode
     
-    @State var date: Date
-    @Binding var task: TaskModel
-    @State private var tab = 0
-    @Environment(\.presentationMode) var presentationMode
+    // Initialisers
+    init(tab: Int = 0, task: Binding<TaskModel>) {
+        self._tab = State(initialValue: tab)
+        self._task = task
+    }
     
+    // Body
     var body: some View {
         NavigationView {
             Form {
+                // Edit Task Name Field
                 HStack {
                     TextField("Title", text: $task.taskTitle)
                     
@@ -29,6 +36,7 @@ struct AddView: View {
                     .pickerStyle(.segmented)
                     .frame(width: 80)
                 }
+                
                 // Tag Picker
                 HStack {
                     Text("Tag")
@@ -55,7 +63,7 @@ struct AddView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        // Add your edit action here
+                    
                     }
                     .tint(.lavendar)
                 }
@@ -64,6 +72,7 @@ struct AddView: View {
     }
 }
 
+// Preview
 #Preview {
-    AddView(date: Date(), task: .constant(TaskModel.sampleTask))
+    EditTaskView(task: .constant(TaskModel.sampleTask))
 }
