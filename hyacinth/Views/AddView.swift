@@ -15,7 +15,7 @@ struct AddView: View {
     @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) var presentationMode
     
-    // Initialiser
+//     Initialiser
     internal init(newTask: TaskModel = TaskModel(title: "", date: Date(), isCompleted: false, tag: TagModel(title: "Reminder", colour: TagColourModel.lavendar)),
                   tab: Int = 0,
                   tasks: Binding<[TaskModel]>,
@@ -43,15 +43,17 @@ struct AddView: View {
                     .frame(width: 80)
                 }
                 // Tag Picker
-                HStack {
-                    Text("Tag")
-                    Spacer()
-                    Text(newTask.taskTag.tagTitle)
-                        .padding(.vertical, 3)
-                        .padding(.horizontal, 7)
-                        .background(newTask.taskTag.tagColour.colorValue)
-                        .cornerRadius(100)
-                    
+                NavigationLink(destination: TagListView(tags: self.$tags)) {
+                    HStack {
+                        Text("Tag")
+                        Spacer()
+                        Text(newTask.taskTag.tagTitle)
+                            .padding(.vertical, 3)
+                            .padding(.horizontal, 7)
+                            .background(newTask.taskTag.tagColour.colorValue)
+                            .cornerRadius(100)
+                        
+                    }
                 }
                 
                 // Date Picker
@@ -65,12 +67,10 @@ struct AddView: View {
                     Button("Dismiss") {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .tint(.lavendar)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                     }
-                    .tint(.lavendar)
                 }
             }
         }
