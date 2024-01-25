@@ -52,5 +52,101 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A94238E0-CEEA-445E-960F-85A8CD5537CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "hyacinth/Views/TagListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A94238E0-CEEA-445E-960F-85A8CD5537CE - afc03698072946a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Int) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onMove(perform: Swift.Optional&lt;(Foundation.IndexSet, Swift.Int) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in hyacinth.CustomTagsView.body.getter : some"
+                  moduleName = "hyacinth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/esther/Developer/Projects/App%20Projects/hyacinth/hyacinth/Views/TagListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "A94238E0-CEEA-445E-960F-85A8CD5537CE - afc03698072946a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Int) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onMove(perform: Swift.Optional&lt;(Foundation.IndexSet, Swift.Int) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in hyacinth.CustomTagsView.body.getter : some"
+                  moduleName = "hyacinth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/esther/Developer/Projects/App%20Projects/hyacinth/hyacinth/Views/TagListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51921DF5-0645-4ABE-B4B2-FC679E8B9EA8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "hyacinth/Views/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FEB8E7C-8C90-4D1D-A38D-1D96F5D38FCF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "hyacinth/Views/TagView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B189C91-1D2E-4F22-BD3E-43D9A3E23CF0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "hyacinth/Views/TagView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

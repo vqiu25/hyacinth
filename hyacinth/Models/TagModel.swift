@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal class TagModel: Identifiable, ObservableObject {
+internal class TagModel: ObservableObject, Identifiable {
     let id: UUID
     @Published private var title: String
     @Published private var colour: TagColourModel

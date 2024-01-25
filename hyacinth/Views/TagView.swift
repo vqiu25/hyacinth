@@ -12,15 +12,15 @@ struct TagView: View {
     private var mode: TagViewModeModel
     @State private var newTag: TagModel
     @State private var selectedColor: Color
-    @Binding private var tag: TagModel
+    @ObservedObject private var tag: TagModel
     @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) var presentationMode
     
     // Initialiser
     // Editing Tag
-    internal init(mode: TagViewModeModel, tag: Binding<TagModel>, tags: Binding<[TagModel]>) {
+    internal init(mode: TagViewModeModel, tag: TagModel, tags: Binding<[TagModel]>) {
         self.mode = mode
-        self._tag = tag
+        self._tag = ObservedObject(initialValue: tag)
         self._tags = tags
         self._selectedColor = State(initialValue: .lavendar)
         // Dummy Variable
@@ -34,7 +34,7 @@ struct TagView: View {
         self._tags = tags
         self._selectedColor = State(initialValue: .lavendar)
         // Dummy Variable
-        self._tag = Binding.constant(TagModel(title: "", colour: .lavendar))
+        self._tag = ObservedObject(initialValue: TagModel(title: "", colour: .lavendar))
     }
     
     // Body

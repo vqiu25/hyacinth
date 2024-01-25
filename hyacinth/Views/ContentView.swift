@@ -9,7 +9,6 @@ import SwiftUI
 import SwipeActions
 
 internal struct ContentView: View {
-    
     // Variables
     @State private var tasks: [TaskModel]
     @State private var tags: [TagModel]
@@ -47,8 +46,6 @@ internal struct ContentView: View {
                             .fontWeight(.bold)
                         }
                     }
-
-                    
 
                     // Display the current month
                     Text(currentDate, formatter: monthFormatter)
@@ -96,7 +93,7 @@ internal struct ContentView: View {
 
                 // ScrollView for the content
                 ScrollView {
-                    LazyVStack(spacing: 0) {
+                    VStack(spacing: 0) {
                         SwipeViewGroup {
                             ForEach(weekDates, id: \.self) { date in
                                 DayView(date: date, tasks: self.$tasks)
@@ -144,6 +141,7 @@ internal struct ContentView: View {
         let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
         return (0..<7).map { calendar.date(byAdding: .day, value: $0, to: startOfWeek)! }
     }
+
     
     // Helper DateFormatter to extract the month
         private var monthFormatter: DateFormatter {

@@ -48,7 +48,7 @@ struct TagListView: View {
                 }
             }
             // Navigation to Custom Tag
-            NavigationLink(destination: TagView(mode: .edit, tag: $tags[selectedIndex], tags: self.$tags), isActive: $isEditNavigation){}
+            NavigationLink(destination: TagView(mode: .edit, tag: tags[selectedIndex], tags: self.$tags), isActive: $isEditNavigation){}
                 .hidden()
                 .listRowBackground(Color(uiColor: .systemGray6))
             

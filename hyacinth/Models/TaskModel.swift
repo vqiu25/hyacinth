@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-internal class TaskModel: Identifiable, ObservableObject {
+internal struct TaskModel: Identifiable {
     // Variables
     let id: UUID
-    @Published private var title: String
-    @Published private var date: Date
-    @Published private var isCompleted: Bool
-    @Published private var tag: TagModel
+     private var title: String
+     private var date: Date
+     private var isCompleted: Bool
+     private var tag: TagModel
     
     // Initialiser
     internal init(id: UUID = UUID(), title: String, date: Date, isCompleted: Bool, tag: TagModel) {
