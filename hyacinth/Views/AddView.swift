@@ -15,15 +15,19 @@ struct AddView: View {
     @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) var presentationMode
     
-//     Initialiser
-    internal init(newTask: TaskModel = TaskModel(title: "", date: Date(), isCompleted: false, tag: TagModel(title: "Reminder", colour: TagColourModel.lavendar)),
-                  tab: Int = 0,
-                  tasks: Binding<[TaskModel]>,
-                  tags: Binding<[TagModel]>) {
-        self._newTask = State(initialValue: newTask)
+    // Initialiser
+    internal init(tab: Int = 0, tasks: Binding<[TaskModel]>, tags: Binding<[TagModel]>) {
         self._tab = State(initialValue: tab)
         self._tasks = tasks
         self._tags = tags
+        
+        // Initialise newTask with the first tag from tags array
+        if let firstTag = tags.wrappedValue.first {
+            self._newTask = State(initialValue: TaskModel(title: "", date: Date(), isCompleted: false, tag: firstTag))
+        } else {
+            // Provide a default initialization if tags array is empty
+            self._newTask = State(initialValue: TaskModel(title: "", date: Date(), isCompleted: false, tag: TagModel(title: "Reminder", colour: TagColourModel.lavendar)))
+        }
     }
     
     // Body
@@ -43,7 +47,7 @@ struct AddView: View {
                     .frame(width: 80)
                 }
                 // Tag Picker
-                NavigationLink(destination: TagListView(tags: self.$tags)) {
+                NavigationLink(destination: TagListView(task: self.$newTask, tags: self.$tags)) {
                     HStack {
                         Text("Tag")
                         Spacer()
@@ -52,7 +56,6 @@ struct AddView: View {
                             .padding(.horizontal, 7)
                             .background(newTask.taskTag.tagColour.colorValue)
                             .cornerRadius(100)
-                        
                     }
                 }
                 
@@ -60,7 +63,7 @@ struct AddView: View {
                 DatePicker("Date", selection: $newTask.taskDate, displayedComponents: .date)
             }
             
-            .padding(.vertical, -20)
+            .padding(.vertical, -15)
             .navigationBarTitle("New Item", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -70,7 +73,10 @@ struct AddView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
+                        tasks.append(newTask)
+                        presentationMode.wrappedValue.dismiss()
                     }
+                    .disabled(newTask.taskTitle.isEmpty)
                 }
             }
         }

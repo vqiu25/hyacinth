@@ -11,12 +11,14 @@ struct EditTaskView: View {
     // Variables
     @State private var tab: Int
     @Binding private var task: TaskModel
+    @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) private var presentationMode
     
     // Initialisers
-    internal init(tab: Int = 0, task: Binding<TaskModel>) {
+    internal init(tab: Int = 0, task: Binding<TaskModel>, tags: Binding<[TagModel]>) {
         self._tab = State(initialValue: tab)
         self._task = task
+        self._tags = tags
     }
     
     // Body
@@ -38,14 +40,16 @@ struct EditTaskView: View {
                 }
                 
                 // Tag Picker
-                HStack {
-                    Text("Tag")
-                    Spacer()
-                    Text(task.taskTag.tagTitle)
-                        .padding(.vertical, 3)
-                        .padding(.horizontal, 7)
-                        .background(task.taskTag.tagColour.colorValue)
-                        .cornerRadius(100)
+                NavigationLink(destination: TagListView(task: self.$task, tags: self.$tags)) {
+                    HStack {
+                        Text("Tag")
+                        Spacer()
+                        Text(task.taskTag.tagTitle)
+                            .padding(.vertical, 3)
+                            .padding(.horizontal, 7)
+                            .background(task.taskTag.tagColour.colorValue)
+                            .cornerRadius(100)
+                    }
                     
                 }
                 
@@ -59,13 +63,11 @@ struct EditTaskView: View {
                     Button("Dismiss") {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .tint(.lavendar)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                     
                     }
-                    .tint(.lavendar)
                 }
             }
         }
@@ -74,5 +76,5 @@ struct EditTaskView: View {
 
 // Preview
 #Preview {
-    EditTaskView(task: .constant(TaskModel.sampleTask))
+    EditTaskView(task: .constant(TaskModel.sampleTask), tags: .constant(TagModel.sampleTags))
 }

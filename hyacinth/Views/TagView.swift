@@ -8,94 +8,109 @@
 import SwiftUI
 
 struct TagView: View {
-    
-    @State private var selectedColour = Color.lavendar
-    @Binding var task: TaskModel
+    // Variables
+    private var mode: TagViewModeModel
+    @State private var newTag: TagModel
+    @State private var selectedColor: Color
+    @Binding private var tag: TagModel
+    @Binding private var tags: [TagModel]
     @Environment(\.presentationMode) var presentationMode
     
+    // Initialiser
+    // Editing Tag
+    internal init(mode: TagViewModeModel, tag: Binding<TagModel>, tags: Binding<[TagModel]>) {
+        self.mode = mode
+        self._tag = tag
+        self._tags = tags
+        self._selectedColor = State(initialValue: .lavendar)
+        // Dummy Variable
+        self._newTag = State(initialValue: TagModel(title: "", colour: .lavendar))
+    }
+    
+    // Creating New Tag
+    internal init(mode: TagViewModeModel, tags: Binding<[TagModel]>) {
+        self.mode = mode
+        self._newTag = State(initialValue: TagModel(title: "", colour: .lavendar))
+        self._tags = tags
+        self._selectedColor = State(initialValue: .lavendar)
+        // Dummy Variable
+        self._tag = Binding.constant(TagModel(title: "", colour: .lavendar))
+    }
+    
+    // Body
     var body: some View {
-        NavigationView {
-            Form {
-                TextField("Title", text: $task.taskTag.tagTitle)
-                
-                Section {
-                    HStack {
-                        Button(action: {
-                            self.task.taskTag.tagColour = .crimson
-                        }) {
-   
-                        }
+        Form {
+            // Show empty string when adding a tag, otherwise show name of tag that is being edited
+            TextField("Title", text: mode == .add ? $newTag.tagTitle : $tag.tagTitle)
+            
+            Section {
+                HStack {
+                    colourButtonView(colour: .crimson, tagColour: .crimson)
+                    Spacer()
+                    colourButtonView(colour: .honey, tagColour: .honey)
+                    Spacer()
+                    colourButtonView(colour: .forest, tagColour: .forest)
+                    Spacer()
+                    colourButtonView(colour: .perwinkle, tagColour: .perwinkle)
+                    Spacer()
+                    
+                    ColorPicker("", selection: $selectedColor)
+                        .labelsHidden()
+                        .scaleEffect(1.5)
                         .frame(width: 40, height: 40)
-                        .background(Color.crimson)
-                        .cornerRadius(30)
-                        Spacer()
-                        
-                        Button(action: {
-                            self.task.taskTag.tagColour = .forest
-                        }) {
-   
+                        .onChange(of: selectedColor) { newColour, oldColour in
+                            if (mode == .add) {
+                                self.newTag.tagColour = mapColorToTagColourModel(colour: newColour)
+                            } else {
+                                self.tag.tagColour = mapColorToTagColourModel(colour: newColour)
+                            }
                         }
-                        .frame(width: 40, height: 40)
-                        .background(Color.forest)
-                        .cornerRadius(30)
-                        Spacer()
-                        
-                        Button(action: {
-                            self.task.taskTag.tagColour = .perwinkle
-                        }) {
-   
-                        }
-                        .frame(width: 40, height: 40)
-                        .background(Color.perwinkle)
-                        .cornerRadius(30)
-                        Spacer()
-                        
-                        Button(action: {
-                            self.task.taskTag.tagColour = .lavendar
-                        }) {
-   
-                        }
-                        .frame(width: 40, height: 40)
-                        .background(Color.lavendar)
-                        .cornerRadius(30)
-                        Spacer()
-                        
-                        Button(action: {
-                            
-                        }) {
-                            Image(systemName: "eyedropper")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20))
-                                .frame(width: 40, height: 40)
-                                .background(Color.gray)
-                                .cornerRadius(30)
-                        }
-                        
-                    }
-                    .padding(.vertical, 5)
+
                 }
-                .listSectionSpacing(20.0)
+                .padding(.vertical, 5)
             }
-            .padding(.vertical, -20)
-            .navigationBarTitle("New Tag", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Dismiss") {
-                        presentationMode.wrappedValue.dismiss()
+            .listSectionSpacing(20.0)
+        }
+        .padding(.vertical, -15)
+        // Update NavigationBarTitle depending on whether we are adding or editing a tag
+        .navigationBarTitle(mode == .add ? "New Tag" : "Edit Tag", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(mode == .add ? "Add" : "Save") {
+                    if mode == .add {
+                        // Add tag to storage
+                        self.tags.append(self.newTag)
+                    } else {
+                        // SwiftUI handles editing colour automatically
                     }
-                    .tint(.lavendar)
+                    presentationMode.wrappedValue.dismiss()
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
-                        // Add your edit action here
-                    }
-                    .tint(.lavendar)
-                }
+                .disabled(mode == .add ? newTag.tagTitle.isEmpty : tag.tagTitle.isEmpty)
             }
         }
     }
+    
+    private func colourButtonView(colour: Color, tagColour: TagColourModel) -> some View {
+        Circle()
+            .foregroundColor(colour)
+            .frame(width: 40, height: 40)
+            .onTapGesture {
+                if(mode == .add) {
+                    self.newTag.tagColour = tagColour
+                } else {
+                    self.tag.tagColour = tagColour
+                }
+                print("\(tagColour) selected")
+            }
+    }
+    
+    private func mapColorToTagColourModel(colour: Color) -> TagColourModel {
+        return .custom(colour)
+    }
 }
 
+// Preview
 #Preview {
-    TagView(task: .constant(TaskModel.sampleTask))
+    //    TagView(mode: .edit, tag: .constant(TagModel.sampleTag))
+    TagView(mode: .add, tags: .constant(TagModel.sampleTags))
 }
