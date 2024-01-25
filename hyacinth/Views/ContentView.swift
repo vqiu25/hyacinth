@@ -99,7 +99,7 @@ internal struct ContentView: View {
                     LazyVStack(spacing: 0) {
                         SwipeViewGroup {
                             ForEach(weekDates, id: \.self) { date in
-                                DayView(date: date, tasks: tasksForDate(date))
+                                DayView(date: date, tasks: self.$tasks)
                                 
                             }
                         }
@@ -143,17 +143,6 @@ internal struct ContentView: View {
         calendar.firstWeekday = 1 // Sunday = 1, Monday = 2, etc.
         let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
         return (0..<7).map { calendar.date(byAdding: .day, value: $0, to: startOfWeek)! }
-    }
-
-    private func tasksForDate(_ date: Date) -> [TaskModel] {
-        // Filter your tasks based on the date
-        tasks.filter { isTaskScheduledForDate($0, date: date) }
-    }
-
-    private func isTaskScheduledForDate(_ task: TaskModel, date: Date) -> Bool {
-        let taskDay = Calendar.current.startOfDay(for: task.taskDate)
-        let viewDay = Calendar.current.startOfDay(for: date)
-        return taskDay == viewDay
     }
     
     // Helper DateFormatter to extract the month

@@ -10,7 +10,7 @@ import SwipeActions
 
 struct DayView: View {
     var date: Date
-    var tasks: [TaskModel]
+    @Binding var tasks: [TaskModel]
 
     var body: some View {
         VStack {
@@ -25,10 +25,10 @@ struct DayView: View {
             .font(.title2)
 
             // Tasks
-            ForEach(tasks.filter { isTaskScheduledForDate($0, date: date) }) { task in
+            ForEach(tasks.indices.filter { isTaskScheduledForDate(tasks[$0], date: date)}, id: \.self) { index in
                 
                 SwipeView {
-                    CardView(task: task)
+                    CardView(task: $tasks[index])
                         .cornerRadius(10)
                         .padding([.leading, .trailing])
                         
@@ -68,6 +68,6 @@ struct DayView: View {
 }
 
 #Preview {
-    DayView(date: Date(), tasks: TaskModel.sampleData)
+    DayView(date: Date(), tasks: .constant(TaskModel.sampleData))
         .background(Color.background)
 }

@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-internal struct TagModel: Identifiable {
+internal class TagModel: Identifiable, ObservableObject {
     let id: UUID
-    private var title: String
-    private var colour: TagColourModel
+    @Published private var title: String
+    @Published private var colour: TagColourModel
     
     internal init(id: UUID = UUID(), title: String, colour: TagColourModel) {
         self.id = id

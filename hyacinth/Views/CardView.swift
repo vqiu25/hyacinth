@@ -9,7 +9,7 @@ import SwiftUI
 import SwipeActions
 
 internal struct CardView: View {
-    @State var task: TaskModel
+    @Binding var task: TaskModel
     
     internal var body: some View {
         
@@ -50,5 +50,5 @@ internal struct CardView: View {
 }
 
 #Preview {
-    CardView(task: TaskModel.sampleTask)
+    CardView(task: .constant(TaskModel.sampleTask))
 }
