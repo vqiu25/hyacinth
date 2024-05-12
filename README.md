@@ -7,6 +7,9 @@
 
 **Note**: This project is currently a work in progress.
 
-A mobile task planning app using SwiftUI on the MVVM architecture, focusing on intuitive design for day-to-day task management. The app features a personalised interface, with careful attention paid to adhering to Apple’s Human Interface and Accessibility Guidelines.
+A mobile task planning app using SwiftUI on the MVVM architecture, focusing on intuitive design for day-to-day task management.
 
 ## Images
+<p align="center">
+  <img width="600" alt="phone" src="https://github.com/vqiu25/hyacinth/assets/109129209/58b40ce0-8bba-4c71-8ad4-e3025e4fb5fd">
+</p>
