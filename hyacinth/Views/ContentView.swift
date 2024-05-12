@@ -10,7 +10,6 @@ import SwipeActions
 
 internal struct ContentView: View {
     // Variables
-    @StateObject private var tagsManager: TagsManagerModel
     @State private var tasks: [TaskModel]
     @State private var tags: [TagModel]
     @State private var currentDate: Date = Date()
@@ -24,7 +23,6 @@ internal struct ContentView: View {
         self._tasks = State(initialValue: tasks)
         self._currentDate = State(initialValue: currentDate)
         self._showingSheet = State(initialValue: showingSheet)
-        self._tagsManager = StateObject(wrappedValue: TagsManagerModel(tags: tags))
     }
 
     // Body
